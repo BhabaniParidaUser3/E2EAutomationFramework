@@ -13,6 +13,8 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 
 import RahulShettyAcademy.pageobjects.landingPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -20,6 +22,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class BaseTest {
 	
 	public WebDriver driver;
+	public landingPage landingPage;
 	
 	public WebDriver initializationDriver() throws IOException
 	{
@@ -61,13 +64,20 @@ public class BaseTest {
 		
 	}
 	
+	@BeforeMethod
 	public landingPage launchApplication() throws IOException
 	{
 	driver=	initializationDriver();
-	landingPage landingPage=new landingPage(driver);
+	landingPage=new landingPage(driver);
 	landingPage.goTo();
 	return landingPage;
 		
+	}
+	
+	@AfterMethod
+	public void tearDown()
+	{
+		driver.close();
 	}
 
 }

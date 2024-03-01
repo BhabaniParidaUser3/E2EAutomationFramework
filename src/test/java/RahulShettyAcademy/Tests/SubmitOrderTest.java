@@ -31,9 +31,7 @@ public class SubmitOrderTest extends BaseTest {
 	{
 		
 		String productname="ZARA COAT 3";
-		landingPage landingPage= launchApplication();
 		productCataloguePage productCatalogue=landingPage.loginApplication("Bhabani.sk.parida@gmail.com", "Bhabani@123");
-		
 		List<WebElement>products=productCatalogue.getProductList();
 		productCatalogue.addProductTocart(productname);
 		cartPage cartpage=productCatalogue.goTocartPage();
@@ -44,7 +42,6 @@ public class SubmitOrderTest extends BaseTest {
 		ConfirmationPage ConfirmationPage=checkoutpage.submitOrder();
 		String confirmMessage=ConfirmationPage.getConfirmationPage();
 		Assert.assertTrue(confirmMessage.equalsIgnoreCase("THANKYOU FOR THE ORDER."));
-		//driver.close();
 		
 	}
 
