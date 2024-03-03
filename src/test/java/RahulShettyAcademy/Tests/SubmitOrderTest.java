@@ -19,18 +19,21 @@ import org.testng.annotations.Test;
 import RahulShettyAcademy.TestComponents.BaseTest;
 import RahulShettyAcademy.pageobjects.CheckOutPage;
 import RahulShettyAcademy.pageobjects.ConfirmationPage;
+import RahulShettyAcademy.pageobjects.OrderPage;
 import RahulShettyAcademy.pageobjects.cartPage;
 import RahulShettyAcademy.pageobjects.landingPage;
 import RahulShettyAcademy.pageobjects.productCataloguePage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class SubmitOrderTest extends BaseTest {
+	
+	String productname="ZARA COAT 3";
 
 	@Test
 	public void submitOrder() throws IOException, InterruptedException
 	{
 		
-		String productname="ZARA COAT 3";
+		
 		productCataloguePage productCatalogue=landingPage.loginApplication("Bhabani.sk.parida@gmail.com", "Bhabani@123");
 		List<WebElement>products=productCatalogue.getProductList();
 		productCatalogue.addProductTocart(productname);
@@ -42,6 +45,15 @@ public class SubmitOrderTest extends BaseTest {
 		ConfirmationPage ConfirmationPage=checkoutpage.submitOrder();
 		String confirmMessage=ConfirmationPage.getConfirmationPage();
 		Assert.assertTrue(confirmMessage.equalsIgnoreCase("THANKYOU FOR THE ORDER."));
+		
+	}
+	
+	@Test(dependsOnMethods= {"submitOrder"})
+	public void orderHistory()
+	{
+		productCataloguePage productCatalogue=landingPage.loginApplication("Bhabani.sk.parida@gmail.com", "Bhabani@123");
+		OrderPage ordersPage=productCatalogue.goToorderPage();
+		Assert.assertTrue(ordersPage.verifyOrderDisplay(productname));
 		
 	}
 

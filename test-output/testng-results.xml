@@ -1,25 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+<testng-results skipped="0" failed="0" ignored="3" total="4" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="32844" started-at="2024-03-01T19:50:32Z" finished-at="2024-03-01T19:51:05Z">
+  <suite name="Suite" duration-ms="12061" started-at="2024-03-03T12:44:16Z" finished-at="2024-03-03T12:44:28Z">
     <groups>
+      <group name="ErrorHandling">
+        <method signature="ErrorValidationTest.LogInErrorValidation()[pri:0, instance:RahulShettyAcademy.Tests.ErrorValidationTest@1622f1b]" name="LogInErrorValidation" class="RahulShettyAcademy.Tests.ErrorValidationTest"/>
+      </group> <!-- ErrorHandling -->
     </groups>
-    <test name="Default test" duration-ms="32844" started-at="2024-03-01T19:50:32Z" finished-at="2024-03-01T19:51:05Z">
-      <class name="RahulShettyAcademy.Tests.SubmitOrderTest">
-        <test-method status="PASS" signature="launchApplication()[pri:0, instance:RahulShettyAcademy.Tests.SubmitOrderTest@cd3fee8]" name="launchApplication" is-config="true" duration-ms="13440" started-at="2024-03-01T19:50:32Z" finished-at="2024-03-01T19:50:46Z">
+    <test name="SubmitOrder Test" duration-ms="0" started-at="2024-03-03T12:44:16Z" finished-at="2024-03-03T12:44:16Z">
+    </test> <!-- SubmitOrder Test -->
+    <test name="ErrorValidation Test" duration-ms="12061" started-at="2024-03-03T12:44:16Z" finished-at="2024-03-03T12:44:28Z">
+      <class name="RahulShettyAcademy.Tests.ErrorValidationTest">
+        <test-method status="PASS" signature="launchApplication()[pri:0, instance:RahulShettyAcademy.Tests.ErrorValidationTest@1622f1b]" name="launchApplication" is-config="true" duration-ms="10121" started-at="2024-03-03T12:44:16Z" finished-at="2024-03-03T12:44:26Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- launchApplication -->
-        <test-method status="PASS" signature="submitOrder()[pri:0, instance:RahulShettyAcademy.Tests.SubmitOrderTest@cd3fee8]" name="submitOrder" duration-ms="18435" started-at="2024-03-01T19:50:46Z" finished-at="2024-03-01T19:51:04Z">
+        <test-method status="PASS" signature="LogInErrorValidation()[pri:0, instance:RahulShettyAcademy.Tests.ErrorValidationTest@1622f1b]" name="LogInErrorValidation" duration-ms="1600" started-at="2024-03-03T12:44:26Z" finished-at="2024-03-03T12:44:28Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- submitOrder -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:RahulShettyAcademy.Tests.SubmitOrderTest@cd3fee8]" name="tearDown" is-config="true" duration-ms="940" started-at="2024-03-01T19:51:04Z" finished-at="2024-03-01T19:51:05Z">
+        </test-method> <!-- LogInErrorValidation -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:RahulShettyAcademy.Tests.ErrorValidationTest@1622f1b]" name="tearDown" is-config="true" duration-ms="283" started-at="2024-03-03T12:44:28Z" finished-at="2024-03-03T12:44:28Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- RahulShettyAcademy.Tests.SubmitOrderTest -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+      </class> <!-- RahulShettyAcademy.Tests.ErrorValidationTest -->
+    </test> <!-- ErrorValidation Test -->
+  </suite> <!-- Suite -->
 </testng-results>

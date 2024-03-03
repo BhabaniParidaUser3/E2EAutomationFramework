@@ -26,6 +26,10 @@ public class landingPage extends AbstractComponent {
 	@FindBy(id="login")
 	WebElement submit;
 	
+	@FindBy(css="[class*='flyInOut']")
+	WebElement errorMessage;
+	
+	
 	public productCataloguePage loginApplication(String email,String password)
 	{
 		userEmailEle.sendKeys(email);
@@ -34,6 +38,12 @@ public class landingPage extends AbstractComponent {
 		productCataloguePage productCatalogue=new productCataloguePage(driver);
 		return productCatalogue;
 
+	}
+	
+	public String getErrorMessage() throws InterruptedException
+	{
+		waitForElementTodisappear(errorMessage);
+		return errorMessage.getText();
 	}
 	
 	public void goTo()
