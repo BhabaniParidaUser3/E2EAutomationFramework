@@ -40,8 +40,10 @@ public class BaseTest {
 		String filePath=System.getProperty("user.dir") +"\\src\\main\\java\\RahulShettyAcademy\\resources\\GlobalData.properties";
 		FileInputStream fis =new FileInputStream(filePath);
 		prop.load(fis);
-		String browserName=prop.getProperty("browser");
+		//String browserName=prop.getProperty("browser");
 		
+		//this below line added If user want to run test in multiple browser from terminal without touching script again & again.
+		String browserName=System.getProperty("browser")!=null ? System.getProperty("browser"):prop.getProperty("browser");
 		
 		if(browserName.equalsIgnoreCase("chrome"))
 		{
