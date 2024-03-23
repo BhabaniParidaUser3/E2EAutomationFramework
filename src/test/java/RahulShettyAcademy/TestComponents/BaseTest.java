@@ -47,7 +47,7 @@ public class BaseTest {
 		
 		if(browserName.equalsIgnoreCase("chrome"))
 		{
-			WebDriverManager.chromedriver().setup();
+			WebDriverManager.chromedriver().clearDriverCache().setup();
 			ChromeOptions option = new ChromeOptions();
 	        option.addArguments("--remote-allow-origins=*");
 			driver=new ChromeDriver(option);	
@@ -99,7 +99,7 @@ public class BaseTest {
 	@AfterMethod(alwaysRun=true)
 	public void tearDown()
 	{
-		driver.close();
+		driver.quit();
 	}
 
 }
