@@ -45,24 +45,28 @@ public class BaseTest {
 		//this below line added If user want to run test in multiple browser from terminal without touching script again & again.
 		String browserName=System.getProperty("browser")!=null ? System.getProperty("browser"):prop.getProperty("browser");
 		
-		if(browserName.equalsIgnoreCase("chrome"))
+		if(browserName.contains("chrome"))
 		{
 			WebDriverManager.chromedriver().clearDriverCache().setup();
 			ChromeOptions option = new ChromeOptions();
 	        option.addArguments("--remote-allow-origins=*");
-			driver=new ChromeDriver(option);	
+	        if(browserName.contains("headless"))
+	        {
+	        option.addArguments("headless");
+	        }
+	        driver=new ChromeDriver(option);	
 			
 		}
 		else if(browserName.equalsIgnoreCase("firefox"))
 		{
-			WebDriverManager.firefoxdriver().setup();
+			WebDriverManager.firefoxdriver().clearDriverCache().setup();
 			FirefoxOptions option = new FirefoxOptions();
 	        option.addArguments("--remote-allow-origins=*");
 			driver=new FirefoxDriver(option);	
 		}
 		else if(browserName.equalsIgnoreCase("edge"))
 		{
-			WebDriverManager.edgedriver().setup();
+			WebDriverManager.edgedriver().clearDriverCache().setup();
 			EdgeOptions option = new EdgeOptions();
 	        option.addArguments("--remote-allow-origins=*");
 			driver=new EdgeDriver(option);	
