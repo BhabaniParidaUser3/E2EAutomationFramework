@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Properties;
 
 import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -54,14 +55,19 @@ public class BaseTest {
 	        {
 	        option.addArguments("headless");
 	        }
-	        driver=new ChromeDriver(option);	
+	        driver=new ChromeDriver(option);
+	        driver.manage().window().setSize(new Dimension(1400,900));
+	        
 			
 		}
 		else if(browserName.equalsIgnoreCase("firefox"))
 		{
 			WebDriverManager.firefoxdriver().clearDriverCache().setup();
 			FirefoxOptions option = new FirefoxOptions();
-	        option.addArguments("--remote-allow-origins=*");
+			 if(browserName.contains("headless"))
+		        {
+		        option.addArguments("headless");
+		        }
 			driver=new FirefoxDriver(option);	
 		}
 		else if(browserName.equalsIgnoreCase("edge"))
@@ -69,6 +75,10 @@ public class BaseTest {
 			WebDriverManager.edgedriver().clearDriverCache().setup();
 			EdgeOptions option = new EdgeOptions();
 	        option.addArguments("--remote-allow-origins=*");
+	        if(browserName.contains("headless"))
+	        {
+	        option.addArguments("headless");
+	        }
 			driver=new EdgeDriver(option);	
 		}
 		
