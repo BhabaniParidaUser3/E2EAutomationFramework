@@ -65,14 +65,6 @@ public class SubmitOrderTest extends BaseTest {
 		
 	}
 	
-	public String getScreenshot(String testcasename) throws IOException
-	{
-		TakesScreenshot ts=(TakesScreenshot)driver;
-		File source=ts.getScreenshotAs(OutputType.FILE);
-		File file=new File(System.getProperty("user.dir")+"//reports//"+testcasename+".png");
-		FileUtils.copyFile(source, file);
-		return System.getProperty("user.dir")+"//reports//"+testcasename+".png";
-	}
 	
 /*	@DataProvider
 	public Object[][] getData()
