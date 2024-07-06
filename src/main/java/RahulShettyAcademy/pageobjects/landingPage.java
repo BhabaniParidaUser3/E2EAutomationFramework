@@ -29,7 +29,7 @@ public class landingPage extends AbstractComponent {
 	@FindBy(css="[class*='flyInOut']")
 	WebElement errorMessage;
 	
-	
+	//Action methods for  this page
 	public productCataloguePage loginApplication(String email,String password)
 	{
 		userEmailEle.sendKeys(email);

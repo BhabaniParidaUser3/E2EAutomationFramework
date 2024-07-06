@@ -45,7 +45,7 @@ public class BaseTest {
 		prop.load(fis);
 		//String browserName=prop.getProperty("browser");
 		
-		//this below line added If user want to run test in multiple browser from terminal without touching script again & again.
+		//Below line added If user want to run test in multiple browser from terminal/jenkins pipeline without touching script again & again.
 		String browserName=System.getProperty("browser")!=null ? System.getProperty("browser"):prop.getProperty("browser");
 		
 		if(browserName.contains("chrome"))
