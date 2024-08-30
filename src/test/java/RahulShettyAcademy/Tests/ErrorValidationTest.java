@@ -9,29 +9,29 @@ import RahulShettyAcademy.TestComponents.BaseTest;
 import RahulShettyAcademy.pageobjects.cartPage;
 import RahulShettyAcademy.pageobjects.productCataloguePage;
 import RahulShettyAcademy.TestComponents.Retry;
+
 public class ErrorValidationTest extends BaseTest {
 
-	@Test(groups= {"ErrorHandling"},retryAnalyzer=Retry.class)	
+	@Test(groups = { "ErrorHandling" }, retryAnalyzer = Retry.class)
 	public void LogInErrorValidation() throws IOException, InterruptedException {
 
-		String productname = "ZARA COAT 3";
 		landingPage.loginApplication("Bhabani.kk.parida@gmail.com", "Bhabani@1234");
-		Assert.assertEquals("Incorrect email  password.", landingPage.getErrorMessage());
+		Assert.assertEquals("Incorrect email or password.", landingPage.getErrorMessage());
 
 	}
-	
-	@Test(retryAnalyzer=Retry.class)
-	public void productErrorValidation() throws IOException, InterruptedException
-	{
-		
-		String productname="ZARA COAT 33";
-		productCataloguePage productCatalogue=landingPage.loginApplication("Bhabani.sk.parida@gmail.com", "Bhabani@123");
-		List<WebElement>products=productCatalogue.getProductList();
+
+	@Test(retryAnalyzer = Retry.class)
+	public void productErrorValidation() throws IOException, InterruptedException {
+
+		String productname = "ZARA COAT 33";
+		productCataloguePage productCatalogue = landingPage.loginApplication("Bhabani.sk.parida@gmail.com",
+				"Bhabani@123");
+		List<WebElement> products = productCatalogue.getProductList();
 		productCatalogue.addProductTocart(productname);
-		cartPage cartpage=productCatalogue.goTocartPage();
-		boolean match=cartpage.verifyProductDisplay(productname);
+		cartPage cartpage = productCatalogue.goTocartPage();
+		boolean match = cartpage.verifyProductDisplay(productname);
 		Assert.assertFalse(match);
-		
+
 	}
 
 }

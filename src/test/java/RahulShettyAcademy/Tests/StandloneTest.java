@@ -37,21 +37,25 @@ public class StandloneTest {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 		String productname = "ZARA COAT 3";
 
-		/*
-		 * //By using Traditional for-loop process to do Addproduct
-		 * 
-		 * List<WebElement> we =
-		 * driver.findElements(By.xpath("//div[@class='card-body']/h5/b")); for
-		 * (WebElement el : we) { System.out.println(el.getText()); } int j = 0; for
-		 * (int i = 0; i < we.size(); i++) { String element1 = we.get(i).getText(); if
-		 * (element1.equals("ADIDAS ORIGINAL")) { j++; driver.findElements(By.
-		 * xpath("//div[@class='card-body']//button//i[@class='fa fa-shopping-cart']"))
-		 * .get(i).click(); if (j == we.size()) { break; } }
-		 * 
-		 * }
-		 */
 		
-		//By using Java stream concept for do Addproduct
+		  //By using Traditional for-loop process to do Add product
+		  
+			
+			/*
+			 * List<WebElement> we =
+			 * driver.findElements(By.xpath("//div[@class='card-body']/h5/b")); //for print
+			 * in console for (WebElement el : we) { System.out.println(el.getText()); }
+			 * 
+			 * int j = 0; for (int i = 0; i < we.size(); i++) { String element1 =
+			 * we.get(i).getText(); if (element1.equals("ADIDAS ORIGINAL")) { j++;
+			 * driver.findElements(By.
+			 * xpath("//div[@class='card-body']//button//i[@class='fa fa-shopping-cart']"))
+			 * .get(i).click(); if (j == we.size()) { break; } }
+			 * 
+			 * }
+			 */
+		
+		//By using Java stream concept for do Add product
 
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[contains(@class, 'mb-3')]")));
 		List<WebElement> products = driver.findElements(By.xpath("//div[contains(@class, 'mb-3')]"));

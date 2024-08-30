@@ -5,7 +5,6 @@
     <classes>
       <class name="RahulShettyAcademy.Tests.ErrorValidationTest">
         <methods>
-          <include name="LogInErrorValidation"/>
           <include name="launchApplication"/>
           <include name="tearDown"/>
           <include name="productErrorValidation"/>
