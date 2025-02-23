@@ -9,7 +9,6 @@
 			<class name="RahulShettyAcademy.Tests.ErrorValidationTest" />
 		</classes>
 	</test> <!-- Test -->
-
 	<test thread-count="5" name="SubmitOrder Test">
 		<classes>
 			<class name="RahulShettyAcademy.Tests.SubmitOrderTest" />
