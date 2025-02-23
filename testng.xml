@@ -6,4 +6,9 @@
 			<class name="RahulShettyAcademy.Tests.ErrorValidationTest" />
 		</classes>
 	</test>
+	<test thread-count="5" name="SubmitOrder Test">
+		<classes>
+			<class name="RahulShettyAcademy.Tests.SubmitOrderTest" />
+		</classes>
+	</test>
 </suite>
